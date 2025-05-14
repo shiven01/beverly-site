@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beverly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans+Hebrew:wght@100..800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-font: "Playpen Sans Hebrew", system-ui, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #f8f4e9; /* Light cream background */
+            font-family: var(--main-font);
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            color: #3a7561; /* Elegant green text */
+            line-height: 1.6;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        header {
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-family: var(--main-font);
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+            font-size: 5rem;
+            margin-bottom: 10px;
+            color: #2a5547;
+        }
+        
+        .love-text {
+            font-family: var(--main-font);
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .timer-container {
+            margin-bottom: 40px;
+            padding: 30px;
+            border: 2px solid #3a7561;
+            border-radius: 10px;
+            display: inline-block;
+            width: 80%;
+            max-width: 800px;
+        }
+        
+        .timer-title {
+            font-family: var(--main-font);
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .timer {
+            font-family: var(--main-font);
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            font-size: 2.5rem;
+            line-height: 1.4;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            color: #2a5547;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .timer-number {
+            font-family: var(--main-font);
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+            font-size: 3.5rem;
+        }
+        
+        .timer-unit {
+            font-family: var(--main-font);
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            font-size: 2rem;
+            margin-right: 1.5rem;
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .image-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .image-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Varying heights for more interesting grid */
+        .image-item:nth-child(3n+1) {
+            grid-row: span 1;
+            height: 250px;
+        }
+        
+        .image-item:nth-child(3n+2) {
+            grid-row: span 2;
+            height: 400px;
+        }
+        
+        .image-item:nth-child(3n+3) {
+            grid-row: span 1;
+            height: 300px;
+        }
+        
+        footer {
+            margin-top: 40px;
+            font-family: var(--main-font);
+            font-optical-sizing: auto;
+            font-weight: 300;
+            font-style: normal;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .image-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 10px;
+            }
+            
+            .image-item:nth-child(n) {
+                grid-row: span 1;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Beverly</h1>
+        <p class="love-text">I love my girlfriend Beverly</p>
+        <div class="timer-container">
+            <p class="timer-title">TSIAYO (Time Since I've Asked You Out)</p>
+            <div class="timer" id="timer">
+                <span id="days-container"><span class="timer-number" id="days">0</span><span class="timer-unit">days</span></span>
+                <span id="hours-container"><span class="timer-number" id="hours">00</span><span class="timer-unit">hours</span></span>
+                <span id="minutes-container"><span class="timer-number" id="minutes">00</span><span class="timer-unit">minutes</span></span>
+                <span id="seconds-container"><span class="timer-number" id="seconds">00</span><span class="timer-unit">seconds</span></span>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="image-grid">
+            <!-- Update these paths to your actual image files -->
+            <div class="image-item">
+                <img src="images/beverly1.jpg" alt="Beverly and me">
+            </div>
+            <div class="image-item">
+                <img src="images/beverly2.jpg" alt="Beverly smiling">
+            </div>
+            <div class="image-item">
+                <img src="images/beverly3.jpg" alt="Our date night">
+            </div>
+            <div class="image-item">
+                <img src="images/beverly4.jpg" alt="Beverly at the beach">
+            </div>
+            <div class="image-item">
+                <img src="images/beverly5.jpg" alt="Our anniversary">
+            </div>
+            <div class="image-item">
+                <img src="images/beverly6.jpg" alt="Beverly laughing">
+            </div>
+            <div class="image-item">
+                <img src="images/beverly7.jpg" alt="Beverly with a gift">
+            </div>
+            <div class="image-item">
+                <img src="images/beverly8.jpg" alt="Beverly in the park">
+            </div>
+            <div class="image-item">
+                <img src="images/beverly9.jpg" alt="Beverly and me at dinner">
+            </div>
+            <!-- Add more images as needed -->
+        </div>
+    </main>
+    
+    <footer>
+        <p>Made with love for Beverly</p>
+    </footer>
+    
+    <script>
+        // Timer functionality
+        function updateTimer() {
+            const startDate = new Date('October 24, 2024 00:00:00').getTime();
+            const now = new Date().getTime();
+            const difference = now - startDate;
+            
+            // Calculate time units
+            const totalSeconds = Math.floor(difference / 1000);
+            const totalMinutes = Math.floor(totalSeconds / 60);
+            const totalHours = Math.floor(totalMinutes / 60);
+            const totalDays = Math.floor(totalHours / 24);
+            
+            // Calculate remainders
+            const hours = totalHours % 24;
+            const minutes = totalMinutes % 60;
+            const seconds = totalSeconds % 60;
+            
+            // Update the display
+            document.getElementById('days').textContent = totalDays;
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+        
+        // Update timer immediately and then every second
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
