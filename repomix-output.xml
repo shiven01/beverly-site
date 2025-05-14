@@ -344,7 +344,7 @@ This section contains the contents of the repository's files.
     <script>
         // Timer functionality
         function updateTimer() {
-            const startDate = new Date('October 24, 2024 00:00:00').getTime();
+            const startDate = new Date('October 24, 2025 00:00:00').getTime();
             const now = new Date().getTime();
             const difference = now - startDate;
             
