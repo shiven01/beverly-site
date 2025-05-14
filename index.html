@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Beverly</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,10 +28,13 @@
             line-height: 1.6;
             padding: 20px;
             text-align: center;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
         }
         
         header {
             margin-bottom: 40px;
+            width: 100%;
         }
         
         h1 {
@@ -59,7 +62,7 @@
             border: 2px solid #3a7561;
             border-radius: 10px;
             display: inline-block;
-            width: 80%;
+            width: 90%;
             max-width: 800px;
         }
         
@@ -119,10 +122,16 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
         
         .image-item:hover {
             transform: scale(1.03);
+        }
+        
+        .image-item:active {
+            transform: scale(0.98);
         }
         
         .image-item img {
@@ -160,7 +169,42 @@
         
         @media (max-width: 768px) {
             h1 {
-                font-size: 3rem;
+                font-size: 3.5rem;
+            }
+            
+            .love-text {
+                font-size: 1.2rem;
+            }
+            
+            .timer-container {
+                width: 100%;
+                padding: 15px;
+            }
+            
+            .timer-title {
+                font-size: 1.2rem;
+            }
+            
+            .timer {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .timer-number {
+                font-size: 2.8rem;
+            }
+            
+            .timer-unit {
+                font-size: 1.5rem;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            #days-container, #hours-container, #minutes-container, #seconds-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 5px;
             }
             
             .image-grid {
@@ -171,6 +215,36 @@
             .image-item:nth-child(n) {
                 grid-row: span 1;
                 height: 200px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .timer-container {
+                padding: 10px;
+            }
+            
+            .timer-number {
+                font-size: 2.2rem;
+            }
+            
+            .timer-unit {
+                font-size: 1.2rem;
+            }
+            
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .image-item:nth-child(n) {
+                height: 250px;
             }
         }
     </style>
@@ -194,39 +268,25 @@
         <div class="image-grid">
             <!-- Update these paths to your actual image files -->
             <div class="image-item">
-                <img src="images/beverly1.jpg" alt="Beverly and me">
+                <img src="images/beverly1.jpeg" alt="Beverly and me">
             </div>
             <div class="image-item">
-                <img src="images/beverly2.jpg" alt="Beverly smiling">
+                <img src="images/beverly2.jpeg" alt="Shrek">
             </div>
             <div class="image-item">
-                <img src="images/beverly3.jpg" alt="Our date night">
+                <img src="images/beverly3.jpeg" alt="Wife">
             </div>
             <div class="image-item">
-                <img src="images/beverly4.jpg" alt="Beverly at the beach">
+                <img src="images/beverly4.jpg" alt="sick ah dog">
             </div>
             <div class="image-item">
-                <img src="images/beverly5.jpg" alt="Our anniversary">
+                <img src="images/beverly5.png" alt=" ">
             </div>
             <div class="image-item">
-                <img src="images/beverly6.jpg" alt="Beverly laughing">
+                <img src="images/beverly6.jpeg" alt="? How do I have this on my phone">
             </div>
-            <div class="image-item">
-                <img src="images/beverly7.jpg" alt="Beverly with a gift">
-            </div>
-            <div class="image-item">
-                <img src="images/beverly8.jpg" alt="Beverly in the park">
-            </div>
-            <div class="image-item">
-                <img src="images/beverly9.jpg" alt="Beverly and me at dinner">
-            </div>
-            <!-- Add more images as needed -->
         </div>
     </main>
-    
-    <footer>
-        <p>Made with love for Beverly</p>
-    </footer>
     
     <script>
         // Timer functionality
